@@ -1,8 +1,8 @@
 #![feature(decl_macro)]
-#[macro_use]
-extern crate rocket;
+#[macro_use] extern crate rocket;
 
 use rocket::response::content::Json;
+
 
 #[get("/hello")]
 fn hello() -> Json<&'static str> {
@@ -11,3 +11,8 @@ fn hello() -> Json<&'static str> {
         'message':'Hello API'
     }")
 }
+fn main() {
+    rocket::ignite().mount("/api", routes![hello]).launch();
+
+}
+

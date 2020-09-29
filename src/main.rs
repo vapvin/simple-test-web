@@ -35,6 +35,14 @@ fn hello() -> Json<&'static str> {
   }")
 }
 
+#[get("/todo")]
+fn todo()-> Json<&'static str'> {
+    Json("{
+        'status':'success'
+        'message':'This Page Todo List'
+    }")
+}
+
 #[catch(404)]
 fn not_found(req: &Request) -> String {
     print!("{}", req);
